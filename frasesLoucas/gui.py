@@ -27,7 +27,7 @@ verbo2 = tk.StringVar()
 pronome1 = tk.StringVar()
 pronome2 = tk.StringVar()
 adverbio = tk.StringVar()
-frase = ['','','','','']
+frase = ['','','','','', '', '']
 randomNum = 0
 
 # funcao para verificar se a palavra pertence à classe de palavras que queremos
