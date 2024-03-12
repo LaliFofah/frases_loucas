@@ -229,9 +229,9 @@ def submit_frase():
         response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
         response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome comum")
         response_nomeComum3 = check_if_is_correct_word_class(nomeComum3.get(), "nome comum")
-        response_adverbio = check_if_is_correct_word_class(adverbio.get(), "adverbio")
+        response_adjetivo = check_if_is_correct_word_class(adjetivo.get(), "adjetivo")
         
-        if response_nomeComum1 == False or response_nomeComum2 == False or response_nomeComum3 == False or response_adverbio == False:
+        if response_nomeComum1 == False or response_nomeComum2 == False or response_nomeComum3 == False or response_adjetivo == False:
             error_label.pack()
             return
         
