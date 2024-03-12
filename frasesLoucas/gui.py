@@ -235,7 +235,7 @@ def submit_frase():
         response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
         response_adverbio = check_if_is_correct_word_class(adverbio.get(), "adverbio")
         response_pronome2 = check_if_is_correct_word_class(pronome2.get(), "pronome indefinido")
-        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
         
         if response_pronome1 == False or response_verbo1 == False or response_adverbio == False or response_pronome2 == False or response_nomeComum1 == False:
             error_label.pack()
@@ -248,8 +248,8 @@ def submit_frase():
         response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
         response_verbo2 = check_if_is_correct_word_class(verbo2.get(), "verbo")
         response_pronome2 = check_if_is_correct_word_class(pronome2.get(), "pronome")
-        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
-        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome comum")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
+        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome")
         
         if response_pronome1 == False or response_verbo1 == False or response_pronome2 == False or response_nomeComum1 == False or response_verbo2 == False or response_nomeComum2 == False:
             error_label.pack()
@@ -268,9 +268,9 @@ def submit_frase():
         frase[2] = f'Sabes qual é a coisa que mais gosto em ti, {nomeProprio.get()}? É o facto de seres {adverbio.get()} {adjetivo.get()}'
         sentence = frase[2]
     elif randomNum == 3:
-        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
-        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome comum")
-        response_nomeComum3 = check_if_is_correct_word_class(nomeComum3.get(), "nome comum")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
+        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome")
+        response_nomeComum3 = check_if_is_correct_word_class(nomeComum3.get(), "nome")
         response_adjetivo = check_if_is_correct_word_class(adjetivo.get(), "adjetivo")
         
         if response_nomeComum1 == False or response_nomeComum2 == False or response_nomeComum3 == False or response_adjetivo == False:
@@ -280,11 +280,11 @@ def submit_frase():
         frase[3] = f'O {nomeComum1.get()} dançou salsa com {nomeComum2.get()} enquanto usava um {nomeComum3.get()} {adverbio.get()}'
         sentence = frase[3]
     elif randomNum == 4:
-        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
-        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome comum")
-        response_nomeComum3 = check_if_is_correct_word_class(nomeComum3.get(), "nome comum")
-        response_nomeComum4 = check_if_is_correct_word_class(nomeComum4.get(), "nome comum")
-        response_nomeComum5 = check_if_is_correct_word_class(nomeComum5.get(), "nome comum")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
+        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome")
+        response_nomeComum3 = check_if_is_correct_word_class(nomeComum3.get(), "nome")
+        response_nomeComum4 = check_if_is_correct_word_class(nomeComum4.get(), "nome")
+        response_nomeComum5 = check_if_is_correct_word_class(nomeComum5.get(), "nome")
         
         if response_nomeComum1 == False or response_nomeComum2 == False or response_nomeComum3 == False or response_nomeComum4 == False or response_nomeComum5 == False:
             error_label.pack()
@@ -295,7 +295,7 @@ def submit_frase():
     elif randomNum == 5:
         response_adjetivo = check_if_is_correct_word_class(adjetivo.get(), "adjetivo")
         response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
-        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
         
         if response_adjetivo == False or response_verbo1 == False or response_nomeComum1 == False:
             error_label.pack()
@@ -304,8 +304,8 @@ def submit_frase():
         frase[5] = f'Não, não vou poder comparecer à reunião. Vou estar {adjetivo.get()} a {verbo1.get()} {nomeComum1.get()}.'
     elif randomNum == 6:
         response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
-        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
-        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome comum")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
+        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome")
         
         if response_verbo1 == False or response_nomeComum1 == False or response_nomeComum2 == False:
             error_label.pack()
