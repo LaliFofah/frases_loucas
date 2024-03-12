@@ -217,7 +217,7 @@ def submit_frase():
         sentence = frase[1]
     elif randomNum == 2:
         response_adverbio = check_if_is_correct_word_class(adverbio.get(), "adverbio")
-        response_adjetivo = check_if_is_correct_word_class(adjetivo.get(), "adjectivo")
+        response_adjetivo = check_if_is_correct_word_class(adjetivo.get(), "adjetivo")
         
         if response_adverbio == False or response_adjetivo == False:
             error_label.pack()
