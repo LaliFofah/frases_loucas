@@ -57,7 +57,7 @@ def pickFrase():
              f'Numa reviravolta bizarra, todos os {nomeComum1} do mundo formaram uma aliança para exigir {nomeComum2} 24 horas por dia, 7 dias por semana, {nomeComum3} com sabor a {nomeColetivo} e sessões obrigatórias de {nomeComum4} com humanos, declarando-se os senhores supremos da {nomeComum5}.'
              ]
     '''
-    numFrases = [0, 1, 2, 3, 4]
+    numFrases = [0, 1, 2, 3, 4, 5, 6]
     global randomNum
     randomNum = choice(numFrases)
     if (randomNum == 0):
@@ -181,8 +181,46 @@ def pickFrase():
         
         submit_button = tk.Button(frame2, width=15, height = 2, text = 'Submit', command=submit_frase)
         submit_button.pack()
+    elif (randomNum == 5):
+        adjetivo_label = tk.Label(frame2, text = 'Adjetivo', font=('calibre',15, 'bold'))
+        adjetivo_entry = tk.Entry(frame2,textvariable = adjetivo, font=('calibre',15,'normal'))
+        verbo1_label = tk.Label(frame2, text = 'Verbo', font=('calibre',15, 'bold'))
+        verbo1_entry = tk.Entry(frame2,textvariable = verbo1, font=('calibre',15,'normal'))
+        nomeComum1_label = tk.Label(frame2, text = 'Nome Comum', font=('calibre',15, 'bold'))
+        nomeComum1_entry = tk.Entry(frame2,textvariable = nomeComum1, font=('calibre',15,'normal'))
         
-# verifica se a frase é válida
+        adjetivo_label.pack()
+        adjetivo_entry.pack()
+        verbo1_label.pack()
+        verbo1_entry.pack()
+        nomeComum1_label.pack()
+        nomeComum1_entry.pack()
+        
+        submit_button = tk.Button(frame2, width=15, height = 2, text = 'Submit', command=submit_frase)
+        submit_button.pack()
+    elif (randomNum == 6):
+        nomeProprio_label = tk.Label(frame2, text = 'Nome Próprio', font=('calibre',15, 'bold'))
+        nomeProprio_entry = tk.Entry(frame2,textvariable = nomeProprio, font=('calibre',15,'normal'))
+        verbo1_label = tk.Label(frame2, text = 'Verbo', font=('calibre',15, 'bold'))
+        verbo1_entry = tk.Entry(frame2,textvariable = verbo1, font=('calibre',15,'normal'))
+        nomeComum1_label = tk.Label(frame2, text = 'Nome Comum', font=('calibre',15, 'bold'))
+        nomeComum1_entry = tk.Entry(frame2,textvariable = nomeComum1, font=('calibre',15,'normal'))
+        nomeComum2_label = tk.Label(frame2, text = 'Nome Comum', font=('calibre',15, 'bold'))
+        nomeComum2_entry = tk.Entry(frame2,textvariable = nomeComum2, font=('calibre',15,'normal'))
+        
+        nomeProprio_label.pack()
+        nomeProprio_entry.pack()
+        verbo1_label.pack()
+        verbo1_entry.pack()
+        nomeComum1_label.pack()
+        nomeComum1_entry.pack()
+        nomeComum2_label.pack()
+        nomeComum2_entry.pack()
+        
+        submit_button = tk.Button(frame2, width=15, height = 2, text = 'Submit', command=submit_frase)
+        submit_button.pack()
+        
+# verifica se a frase é válida atraves da api
 def submit_frase():
     error_label = tk.Label(frame2, text = 'ERRO! A palavra que introduziu ou está na classe errada, ou não existe!', font=('calibre',15, 'bold'), foreground= 'red')
     global pronome1, pronome2, verbo1, verbo2, adverbio, nomeComum1, nomeComum2, nomeComum3, nomeComum4, nomeComum5, nomeColetivo, adjetivo, nomeProprio
@@ -250,6 +288,26 @@ def submit_frase():
         
         frase[4] = f'Numa reviravolta bizarra, todos os {nomeComum1.get()} do mundo formaram uma aliança para exigir {nomeComum2.get()} 24 horas por dia, 7 dias por semana, {nomeComum3.get()} com sabor a {nomeComum4.get()}\n e sessões obrigatórias de {nomeComum5.get()} com humanos, declarando-se os senhores supremos da {nomeColetivo.get()}.'
         sentence = frase[4]
+    elif randomNum == 5:
+        response_adjetivo = check_if_is_correct_word_class(adjetivo.get(), "adjetivo")
+        response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
+        
+        if response_adjetivo == False or response_verbo1 == False or response_nomeComum1 == False:
+            error_label.pack()
+            return
+        
+        frase[5] = f'Não, não vou poder comparecer à reunião. Vou estar {adjetivo.get()} a {verbo1.get()} {nomeComum1.get()}.'
+    elif randomNum == 6:
+        response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
+        response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
+        response_nomeComum2 = check_if_is_correct_word_class(nomeComum2.get(), "nome comum")
+        
+        if response_verbo1 == False or response_nomeComum1 == False or response_nomeComum2 == False:
+            error_label.pack()
+            return
+        
+        frase[6] = f'{nomeProprio.get()}!! Quantas vezes é que tenho de te dizer para {verbo1.get()} {nomeComum1.get()}? Vou te tirar o {nomeComum2.get()} da próxima para ver se aprendes!'
     global sentence_label
     sentence_label = ttk.Label(frame2, text=sentence)
     sentence_label.pack()
