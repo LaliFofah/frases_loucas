@@ -8,9 +8,12 @@ import requests
 # The API endpoint
 original_url:str = "https://dictionary-api-pt.onrender.com"
 
+# declaracao de uma main para a GUI
 m = tk.Tk()
+# criacao do frame 1
 frame1 = tk.Frame(m, width = 400, height = 400)
 frame1.pack()
+# declaracao de variaveis
 adjetivo = tk.StringVar()
 nomeComum1 = tk.StringVar()
 nomeComum2 = tk.StringVar()
@@ -39,7 +42,7 @@ def check_if_is_correct_word_class(palavra:str, classe_de_palavra:str) -> bool:
     else:
         return False
 
-# escolhe a template de frase aleatoriamente
+# escolhe a template de frase aleatoriamente, e da pack às labels dependendo da frase que calhou
 def pickFrase():
     global frase
     global pronome1, pronome2, verbo1, verbo2, adverbio, nomeComum1, nomeComum2, nomeComum3, nomeComum4, nomeComum5, nomeColetivo, adjetivo, nomeProprio
@@ -57,6 +60,7 @@ def pickFrase():
              f'Numa reviravolta bizarra, todos os {nomeComum1} do mundo formaram uma aliança para exigir {nomeComum2} 24 horas por dia, 7 dias por semana, {nomeComum3} com sabor a {nomeColetivo} e sessões obrigatórias de {nomeComum4} com humanos, declarando-se os senhores supremos da {nomeComum5}.'
              ]
     '''
+    # num de frases diferentes
     numFrases = [0, 1, 2, 3, 4, 5, 6]
     global randomNum
     randomNum = choice(numFrases)
@@ -83,6 +87,7 @@ def pickFrase():
         nomeComum1_label.pack()
         nomeComum1_entry.pack()
 
+        # gerar botao para dar submit aos campos preenchidos, para formar uma frase
         submit_button = tk.Button(frame2, width=15, height = 2, text = 'Submit', command=submit_frase)
         submit_button.pack()
     elif (randomNum == 1):
@@ -220,7 +225,7 @@ def pickFrase():
         submit_button = tk.Button(frame2, width=15, height = 2, text = 'Submit', command=submit_frase)
         submit_button.pack()
         
-# verifica se a frase é válida atraves da api
+# verifica se a frase é válida atraves da api, e mostra a frase criada se nao tiver erros. caso tenha erros mostra uma mensagem de erro.
 def submit_frase():
     error_label = tk.Label(frame2, text = 'ERRO! A palavra que introduziu ou está na classe errada, ou não existe!', font=('calibre',15, 'bold'), foreground= 'red')
     global pronome1, pronome2, verbo1, verbo2, adverbio, nomeComum1, nomeComum2, nomeComum3, nomeComum4, nomeComum5, nomeColetivo, adjetivo, nomeProprio
@@ -314,6 +319,7 @@ def submit_frase():
     voltar_btn = tk.Button(frame2, width=15, height = 2, text = 'Voltar', command = switch_to_frame1)
     voltar_btn.pack()
         
+# codigo do botao que gera as labels e entries necessarias, e apaga as anteriores quando gera uma nova
 def gerarFrase():
     help_button.pack(side='right')
     for widget in frame2.winfo_children():
@@ -323,6 +329,7 @@ def gerarFrase():
             widget.destroy()   
     pickFrase()
     
+# botao de help
 def help():
     switch_to_frame3()
     for widget in frame3.winfo_children():
@@ -332,30 +339,36 @@ def help():
     basic_help_label.pack()
     voltar_btn.pack()
     
+# declarar frames
 frame2 = tk.LabelFrame(m, width = 400, height = 400)
 frame3 = tk.LabelFrame(m, width = 400, height = 400)
 
+# muda de qualquer frame para o frame 2
 def switch_to_frame2():
     frame1.forget()
     frame3.forget()
     frame2.pack()
     
+# muda de qualquer frame para o frame 1
 def switch_to_frame1():
     frame2.pack_forget()
     frame1.pack()
     
+# muda de qualquer frame para o frame 3
 def switch_to_frame3():
     frame2.pack_forget()
     frame3.pack()
 
+# titulo
 title_label = tk.Label(frame1, text = 'Frases Loucas', padx=10, pady=30,font=('calibre',20, 'bold'))
 title_label.pack()
+# botao de start
 start_button = tk.Button(frame1, width=15, height = 2, text = 'Start', command=switch_to_frame2)
 start_button.pack()
-
+#fazer o botao de gerar aparecer
 button_gerar = tk.Button(frame2, width=15, height = 2, text = 'Gerar', command = gerarFrase)
 button_gerar.pack()
-
+#fazer o botao de help aparecer
 help_button = tk.Button(frame2, text = '?', height = 2, width= 2, padx = 2, pady= 2,command = help)
 
 m.mainloop()
