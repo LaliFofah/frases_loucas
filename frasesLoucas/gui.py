@@ -229,7 +229,6 @@ def pickFrase():
 def submit_frase():
     error_label = tk.Label(frame2, text = 'ERRO! A palavra que introduziu ou está na classe errada, ou não existe!', font=('calibre',15, 'bold'), foreground= 'red')
     global pronome1, pronome2, verbo1, verbo2, adverbio, nomeComum1, nomeComum2, nomeComum3, nomeComum4, nomeComum5, nomeColetivo, adjetivo, nomeProprio
-    randomNum = 0
     if randomNum == 0:
         # A GET request to the API
         response_pronome1 = check_if_is_correct_word_class(pronome1.get(), "pronome")
