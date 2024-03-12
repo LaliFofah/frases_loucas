@@ -235,7 +235,7 @@ def submit_frase():
             error_label.pack()
             return
         
-        frase[3] = f'O {nomeComum1.get()} dançou salsa com {nomeComum2.get()} enquanto usava um {nomeComum3.get()} {adjetivo.get()}'
+        frase[3] = f'O {nomeComum1.get()} dançou salsa com {nomeComum2.get()} enquanto usava um {nomeComum3.get()} {adverbio.get()}'
         sentence = frase[3]
     elif randomNum == 4:
         response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome comum")
