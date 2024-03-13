@@ -302,6 +302,7 @@ def submit_frase():
             return
         
         frase[5] = f'Não, não vou poder comparecer à reunião. Vou estar {adjetivo.get()} a {verbo1.get()} {nomeComum1.get()}.'
+        sentence = frase[5]
     elif randomNum == 6:
         response_verbo1 = check_if_is_correct_word_class(verbo1.get(), "verbo")
         response_nomeComum1 = check_if_is_correct_word_class(nomeComum1.get(), "nome")
@@ -312,6 +313,7 @@ def submit_frase():
             return
         
         frase[6] = f'{nomeProprio.get()}!! Quantas vezes é que tenho de te dizer para {verbo1.get()} {nomeComum1.get()}? Vou te tirar o {nomeComum2.get()} da próxima para ver se aprendes!'
+        sentence = frase[6]
     global sentence_label
     sentence_label = ttk.Label(frame2, text=sentence)
     sentence_label.pack()
